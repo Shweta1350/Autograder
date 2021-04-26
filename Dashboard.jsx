@@ -1,14 +1,27 @@
 import React from "react";
 import './index.css';
+import { Tabs } from 'antd';
+import { StickyContainer, Sticky } from 'react-sticky';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import  LaptopOutlined from '@ant-design/icons';
-import { Skeleton } from 'antd';
+import {NavLink} from "react-router-dom";
 
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
+const { TabPane } = Tabs;
+
+const renderTabBar = (props, DefaultTabBar) => (
+  <Sticky bottomOffset={80}>
+    {({ style }) => (
+      <DefaultTabBar {...props} className="site-custom-tab-bar" style={{ ...style }} />
+    )}
+  </Sticky>
+);
 
 export default class Dashboard extends React.Component {
   constructor(props) {
@@ -20,13 +33,181 @@ export default class Dashboard extends React.Component {
       <div >
     <Header className="header">
       <div className="logo"/>
-      <Menu theme="dark" className="Nav" mode="horizontal" defaultSelectedKeys={['2']}>
-        <Menu.Item style={{marginLeft:"200px"}} key="1">Course Work</Menu.Item>
-        <Menu.Item key="2">Assignments</Menu.Item>
-        <Menu.Item key="3">Quizzes</Menu.Item>
-        <Menu.Item key="4">Discussion Forum</Menu.Item>
-        <Menu.Item key="5">Resources</Menu.Item>
-      </Menu>
+      
+   <div className="container-fluid nav_bg">
+    <div className='row'>
+    <div className="col mx-auto">
+    
+
+   
+    <nav className="navbar navbar-light navbar-custom navbar-expand-xl" style={{backgroundColor: '#dbf6e9',height:'65px',width:'1343px',paddingLeft:'290px',marginLeft:'-50px'}}>
+  
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
+  </button>
+
+  <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    
+  <StickyContainer style={{backgroundColor: '#dbf6e9',height:'60px'}}>
+    <Tabs defaultActiveKey="1" renderTabBar={renderTabBar}>
+
+      <TabPane tab="Create+" style={{ height: 900,width:'700px',color:'black',marginTop:'30px'}} key="1" >
+         <div>
+
+          
+           <form>
+        <div className="form-group">
+          <label htmlFor="formGroupExampleInput">Assignment No :</label>
+          <input type="text" className="form-control" id="formGroupExampleInput" placeholder=" " />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="formGroupExampleInput2">Assignment Name :</label>
+          <input type="text" className="form-control" id="formGroupExampleInput2" placeholder=" " />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="formGroupExampleInput">Marks :</label>
+          <input type="text" className="form-control" id="formGroupExampleInput" placeholder=" " />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="formGroupExampleInput">Due Date :</label>
+          <input type="text" className="form-control" id="formGroupExampleInput" placeholder=" " />
+        </div>
+
+
+        <div class="form-group">
+    <label for="exampleFormControlTextarea1">Add Context :</label>
+    <textarea class="form-control" style={{ height:'200px'}}  id="exampleFormControlTextarea1" rows="3"></textarea>
+
+  </div> 
+  
+   <div className="form-group">
+        <label htmlFor="exampleFormControlFile1">Sample Answer :</label>
+        <input type="file" className="form-control-file" id="exampleFormControlFile1" />
+      </div>
+
+<button type="submit" class="btn btn-primary">Create</button>
+
+
+        
+      </form>
+         
+        </div> 
+      </TabPane>
+
+      <TabPane tab="Assignments" style={{ height: 900,width:'700px',color:'black',marginTop:'30px'}} key="2">
+
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    
+  <StickyContainer style={{backgroundColor: '#f7f3e9',height:'60px'}}>
+    <Tabs defaultActiveKey="1" renderTabBar={renderTabBar}>
+
+      <TabPane tab="My Assignments" style={{ height: 900,width:'1100px',color:'black',marginTop:'30px'}} key="1" >
+         <div>
+
+         <div className="card" style={{ height:'100px',width:'700px'}} >
+        <div className="card-header" style={{ fontSize:'15px'}}>
+          Assignment No 1
+        </div>
+        <div className="card-body" >
+          <h6 className="card-title" style={{ fontSize:'13px'}}>Implement ECLAT Algorithm</h6>
+        </div>
+      </div>
+
+
+        </div> 
+
+<br />
+
+         <div>
+
+         <div className="card" style={{ height:'100px',width:'700px'}} >
+        <div className="card-header" style={{ fontSize:'15px'}}>
+          Assignment No 1
+        </div>
+        <div className="card-body" >
+          <h6 className="card-title" style={{ fontSize:'13px'}}>Implement ECLAT Algorithm</h6>
+        </div>
+      </div>
+
+
+        </div> 
+
+<br />
+
+         <div>
+
+         <div className="card" style={{ height:'100px',width:'700px'}} >
+        <div className="card-header" style={{ fontSize:'15px'}}>
+          Assignment No 1
+        </div>
+        <div className="card-body" >
+          <h6 className="card-title" style={{ fontSize:'13px'}}>Implement ECLAT Algorithm</h6>
+        </div>
+      </div>
+
+
+        </div> 
+      </TabPane>
+
+      <TabPane tab="Review Assignment" style={{ height: 1100,width:'1100px',color:'black',marginTop:'30px'}} key="2">
+      <div > 
+
+         <div className="card" style={{ height:'300px',width:'700px'}} >
+        <div className="card-header" style={{ fontSize:'17px'}}>
+          Assignment No 1
+        </div>
+        <div className="card-body" style={{height:'500px',width:'500px'}} >
+          <h6 className="card-title" style={{ fontSize:'17px'}}>Implement ECLAT Algorithm</h6>
+          <h6 className="card-title" style={{ fontSize:'14px'}}>Problem Statement : Select a domain for demonstration of ECLAT Algorithm.You can use the existing dataset and build ECLAT without using buildin package.All possible limitation and Expectation should be handled by your code</h6>
+          <h6 className="card-title" style={{ fontSize:'14px'}}>Due Date: 30/04/2021</h6>
+          <h6 className="card-title" style={{ fontSize:'14px'}}>Max marks : 15 </h6>
+
+          <div className="form-group">
+        <label htmlFor="exampleFormControlFile1">Submit Here : </label>
+        <input type="file" style={{ height:'34px',border:'3px white solid'}} className="form-control-file" id="exampleFormControlFile1" />
+         <input type="submit" style={{ paddingLeft:'-150px'}} />
+      </div> 
+        </div>
+      </div>
+
+
+        </div> 
+
+      </TabPane>
+      <TabPane tab="XYZ"  style={{ height: 200,color:'black',marginTop:'30px'}} key="3">
+         
+         Tab  3
+
+      </TabPane>
+    </Tabs>
+  </StickyContainer>
+    
+
+    
+  </div>
+
+      </TabPane>
+      <TabPane tab="Quizzes"  style={{ height: 200,color:'black',marginTop:'30px'}} key="3">
+        Content of Tab Pane 3
+      </TabPane>
+    </Tabs>
+  </StickyContainer>
+    
+
+    
+  </div>
+  
+
+   
+</nav>
+
+</div>
+   </div>
+    </div>
+        
     </Header>
     <Content style={{ padding: '0 50px' }}>
       
@@ -62,7 +243,7 @@ export default class Dashboard extends React.Component {
         <Content style={{ padding: '0 24px', minHeight: 280 }}>
         </Content>
 
-        <Skeleton />
+       
        
       </Layout>
     </Content>
